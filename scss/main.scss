@@ -1,16 +1,15 @@
 @import 'variables';
 @import 'logo';
-//@import 'hero';
+@import 'hero';
 
 html{
     background-color: $violet;
-    
-    color: #fff;
+    color:$white;
     box-sizing: border-box;
     font-size: 100%;
 }
 
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: inherit;
@@ -22,41 +21,85 @@ body{
     background-repeat: no-repeat;
     background-size: contain;
     height: 100vh;
+    width: 100vw;
+    @include desktop-view {
+        background-image: url("/images/bg-desktop.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+        width: 100vw;
+    }
 }
 
 .container{
     display: block;
-    
+    height: 100vh;
+    width: 100vw;
+    @include desktop-view{
+        display: flex;
+        flex-direction: row;
+        
+    }
+
     #mockup{
-        height: 19rem;
-        width: 20.9375rem;
-        margin: auto;
+        height: 17rem;
         text-align: center;
         position: relative;
         top: 5rem;
-        
+        @include desktop-view {
+            position: relative;
+            left: 0;
+            top: 10rem;
+            height: 36rem;
+        }
+
         img{
             height: 14.0625rem;
             width: auto;
+            @include desktop-view{
+                position: relative;
+                padding: 1rem;
+                height: 36rem;
+                width: auto;
+            }
         }
+
     }
 
     #intro{
+        display: block;
         position: relative;
-        top: 5rem;
+        top: 3rem;
         text-align: center;
-        height: 27.5rem;
-
+        height: 25.5rem;
+        width: auto;
+        padding: 0 2rem;
+        @include desktop-view{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            height: 45rem;
+            width: 55rem;
+        }
         h2{
             font-family:'Poppins';
             font-weight: 600;
+            @include desktop-view{
+                font-size: 3rem;
+                font-family: 'Poppins';
+            }
         }
 
         .message{
             font-family: 'Open Sans';
             font-weight: 400;
             text-align: center;
-            margin: 0 1.875rem;
+            @include desktop-view{
+                text-align: left;
+                margin: 0;
+                font-size: 1rem;
+            }
         }
     }
 }
@@ -64,7 +107,6 @@ body{
 button{
     position: relative;
     top: 2rem;
-    margin: 1rem 0;
     background-color: $white;
     color: $violet;
     font-family: 'Open Sans';
@@ -72,26 +114,40 @@ button{
     width: 14rem;
     border-radius: 50px;
     box-shadow:0px 5px 5px black;
+    @include desktop-view{
+        top: 5rem;
+        height: 3.5rem;
+        width: 10rem;
+    }
 }
 
 .social-media{
     height: 3rem;
-    width: 14rem;
+    width: auto;
     position: relative;
-    top: 2.5rem;
+    top: 5rem;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin: auto;
     font-size: 1.5rem;
-    
+    @include desktop-view{
+       position: relative;
+       text-align: right;
+       display: block;
+       top: 10rem;
+       
+       i{
+           padding: 1rem;
+       }
+    }
 }
 
-
-
-footer{
-    text-align: center;
+.attribution{
     position: relative;
-    top: 2rem;
-    
+    top: 7rem;
+    @include desktop-view {
+        text-align: right;
+        position: relative;
+        top: 11rem;
+    }
 }

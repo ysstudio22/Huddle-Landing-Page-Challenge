@@ -3,15 +3,8 @@ $screen-mobile: 23.4375rem;
 $screen-desktop: 90rem;
 
 //desktop screen
+@mixin desktop-view{
 @media (min-width: $screen-desktop) {
-    body{
-        background-image: url(/images/bg-desktop.svg);
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    .container{
-        display: flex;
-        flex-direction: column;
+        @content
     }
 }
